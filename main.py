@@ -11,11 +11,11 @@ class main():
     def __init__(self, text):
         self.text = text
         self.tts = gTTS(text=self.text, lang="en")
-        self.filename = "voice.mp3"
+        self.filename = "output.mp3"
 
     def speak(self):
         self.tts.save(self.filename)
-        playsound.playsound(self.filename)
+        playsound.playsound(os.path.join(os.getcwd(), self.filename))
 
 
 obj = main("Hello World")
