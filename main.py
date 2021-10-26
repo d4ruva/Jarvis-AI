@@ -17,7 +17,18 @@ class main():
         self.tts.save(self.filename)
         playsound.playsound(os.path.join(os.getcwd(), self.filename))
 
+    def recognize(self):
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            audio = r.listen(source)
+            said = ""
 
-obj = main("Hello World")
+            try:
+                said = r.recognize_google(audio)
+                print(said)
+            except Exception as e:
+                print("Error: " + str(e))
 
-main.speak(obj)
+
+obj = main("Hello")
+obj.recognize()
