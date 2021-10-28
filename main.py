@@ -2,9 +2,11 @@
 Author: Dhruva Dhangar
 Date: 26-10-21
 """
+import os
+import playsound
+
 import speech_recognition as sr
 from gtts import gTTS
-import os, time, playsound
 
 
 class main():
